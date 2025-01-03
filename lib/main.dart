@@ -64,6 +64,7 @@ class _JankenPageState extends State<JankenPage> {
                     myHand = '✊';
                     // ignore: avoid_print
                     print(myHand);
+                    setState(() {});
                   },
                   child: Text('✊'),
                 ),
@@ -72,16 +73,18 @@ class _JankenPageState extends State<JankenPage> {
                     myHand = '✌️';
                     // ignore: avoid_print
                     print(myHand);
+                    setState(() {});
                   },
                   child: Text('✌️'),
                 ),
                 ElevatedButton(
                   onPressed: (){
-                    myHand = '✋';
+                    myHand = '🖐️';
                     // ignore: avoid_print
                     print(myHand);
+                    setState(() {});
                   },
-                  child: Text('✋'),
+                  child: Text('🖐️'),
                 ),
               ],
             ),
