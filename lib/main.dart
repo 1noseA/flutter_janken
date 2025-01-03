@@ -21,15 +21,27 @@ class MyApp extends StatelessWidget {
 }
 
 class JankenPage extends StatefulWidget {
+  const JankenPage({super.key});
+
   @override
-  _JankenPageState createState() => _JankenPageState();
+  State<JankenPage> createState() => _JankenPageState();
 }
 
 class _JankenPageState extends State<JankenPage> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          'じゃんけんゲーム',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 24,
+            color: Colors.white,
+          ),
+        ),
+        backgroundColor: Colors.blue,
+      ),
     );
   }
 }
