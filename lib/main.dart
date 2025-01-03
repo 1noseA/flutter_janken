@@ -31,6 +31,14 @@ class _JankenPageState extends State<JankenPage> {
   // 変数
   String myHand = '✊';
 
+  // 関数
+  void selectHand(String selectdHand) {
+    myHand = selectdHand;
+    // ignore: avoid_print
+    print(myHand);
+    setState((){});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,28 +69,19 @@ class _JankenPageState extends State<JankenPage> {
               children: [   
                 ElevatedButton(
                   onPressed: (){
-                    myHand = '✊';
-                    // ignore: avoid_print
-                    print(myHand);
-                    setState(() {});
+                    selectHand('✊');
                   },
                   child: Text('✊'),
                 ),
                 ElevatedButton(
                   onPressed: (){
-                    myHand = '✌️';
-                    // ignore: avoid_print
-                    print(myHand);
-                    setState(() {});
+                    selectHand('✌️');
                   },
                   child: Text('✌️'),
                 ),
                 ElevatedButton(
                   onPressed: (){
-                    myHand = '🖐️';
-                    // ignore: avoid_print
-                    print(myHand);
-                    setState(() {});
+                    selectHand('🖐️');
                   },
                   child: Text('🖐️'),
                 ),
