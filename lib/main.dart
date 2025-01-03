@@ -43,24 +43,39 @@ class _JankenPageState extends State<JankenPage> {
         backgroundColor: Colors.blue,
       ),
       body: Center(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            ElevatedButton(
-              onPressed: (){},
-              child: Text('✊'),
+            Text(
+              '✊',
+              style: TextStyle(
+                fontSize: 32,
+              ),
             ),
-            ElevatedButton(
-              onPressed: (){},
-              child: Text('✌️'),
-            ),
-            ElevatedButton(
-              onPressed: (){},
-              child: Text('✋'),
+            SizedBox(height: 16),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [   
+                ElevatedButton(
+                  onPressed: (){
+                    // ignore: avoid_print
+                    print('✊');
+                  },
+                  child: Text('✊'),
+                ),
+                ElevatedButton(
+                  onPressed: (){},
+                  child: Text('✌️'),
+                ),
+                ElevatedButton(
+                  onPressed: (){},
+                  child: Text('✋'),
+                ),
+              ],
             ),
           ],
-        )
-      )
+        ),
+      ),
     );
   }
 }
