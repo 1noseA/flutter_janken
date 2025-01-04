@@ -127,7 +127,7 @@ class _JankenPageState extends State<JankenPage> {
                 fontSize: 32,
               ),
             ),
-            SizedBox(height: 16),
+            SizedBox(height: 48),
 
             // 手を選ぶボタン
             Row(
@@ -137,19 +137,35 @@ class _JankenPageState extends State<JankenPage> {
                   onPressed: (){
                     selectHand('✊');
                   },
-                  child: Text('✊'),
+                  style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
+                  child: Text(
+                    '✊',
+                    style: TextStyle(
+                      fontSize: 24,
+                    ),
+                  ),
                 ),
                 ElevatedButton(
                   onPressed: (){
                     selectHand('✌️');
                   },
-                  child: Text('✌️'),
+                  style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
+                  child: Text('✌️',
+                    style: TextStyle(
+                      fontSize: 24,
+                    ),
+                  ),
                 ),
                 ElevatedButton(
                   onPressed: (){
                     selectHand('🖐️');
                   },
-                  child: Text('🖐️'),
+                  style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
+                  child: Text('🖐️',
+                    style: TextStyle(
+                      fontSize: 24,
+                    ),
+                  ),
                 ),
               ],
             ),
