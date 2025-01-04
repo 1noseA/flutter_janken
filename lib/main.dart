@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -28,15 +30,40 @@ class JankenPage extends StatefulWidget {
 }
 
 class _JankenPageState extends State<JankenPage> {
-  // 変数
+  // 自分の手
   String myHand = '✊';
+
+  // コンピューターの手
+  String computerHand = '✊';
 
   // 関数
   void selectHand(String selectdHand) {
     myHand = selectdHand;
     // ignore: avoid_print
     print(myHand);
+    generateComputerHand();
     setState((){});
+  }
+
+  // コンピューターの手を決める
+  void generateComputerHand() {
+    // ignore: avoid_print
+    final randomNumber = Random().nextInt(3);
+    computerHand = randomNumberToHand(randomNumber);
+  }
+
+  // ランダムな数字を絵文字に変換する
+  String randomNumberToHand(int randomNumber) {
+    switch (randomNumber) {
+      case 0:
+        return '✊';
+      case 1:
+        return '✌️';
+      case 2:
+        return '🖐';
+      default:
+        return '✊';
+    }
   }
 
   @override
@@ -57,6 +84,14 @@ class _JankenPageState extends State<JankenPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            // コンピューターの手を表示
+            Text(
+              computerHand,
+              style: TextStyle(
+                fontSize: 32,
+              ),
+            ),
+            SizedBox(height: 48),
             Text(
               myHand,
               style: TextStyle(
