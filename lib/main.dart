@@ -36,16 +36,20 @@ class _JankenPageState extends State<JankenPage> {
   // コンピューターの手
   String computerHand = '✊';
 
+  // 結果
+  String result = '';
+
   // 関数
   void selectHand(String selectdHand) {
     myHand = selectdHand;
     // ignore: avoid_print
     print(myHand);
     generateComputerHand();
+    judge();
     setState((){});
   }
 
-  // コンピューターの手を決める
+  // コンピューターの手をランダムで生成
   void generateComputerHand() {
     // ignore: avoid_print
     final randomNumber = Random().nextInt(3);
@@ -63,6 +67,20 @@ class _JankenPageState extends State<JankenPage> {
         return '🖐';
       default:
         return '✊';
+    }
+  }
+
+  // 勝敗判定
+  void judge() {
+    // 引き分けの場合
+    if (myHand == computerHand) {
+      result = '引き分け';
+    } else if ((myHand == '✊' && computerHand == '✌️') ||
+        (myHand == '✌️' && computerHand == '🖐') ||
+        (myHand == '🖐' && computerHand == '✊')) {
+      result = '勝ち';
+    } else {
+      result = '負け';
     }
   }
 
@@ -84,7 +102,16 @@ class _JankenPageState extends State<JankenPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // コンピューターの手を表示
+            // 勝敗
+            Text(
+              result,
+              style: TextStyle(
+                fontSize: 32,
+              ),
+            ),
+            SizedBox(height: 48),
+
+            // コンピューターの手
             Text(
               computerHand,
               style: TextStyle(
@@ -92,6 +119,8 @@ class _JankenPageState extends State<JankenPage> {
               ),
             ),
             SizedBox(height: 48),
+
+            // 自分の手
             Text(
               myHand,
               style: TextStyle(
@@ -99,6 +128,8 @@ class _JankenPageState extends State<JankenPage> {
               ),
             ),
             SizedBox(height: 16),
+
+            // 手を選ぶボタン
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [   
